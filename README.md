@@ -17,8 +17,7 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![CircleCI](https://circleci.com/gh/gthomson31/snowplow-os-pipeline/tree/main.svg?style=svg&circle-token=ca8e88fc7341936af72be57891b5ac056a40ce9a)](https://circleci.com/gh/gthomson31/snowplow-os-pipeline/tree/main)
-
+[![CircleCI](https://circleci.com/gh/gthomson31/Snowplow-QuickStart-CircleCI/tree/main.svg?style=svg&circle-token=f9a55d6df6a95092a3cbc7ef28b0a1e46e196d71)](https://circleci.com/gh/gthomson31/Snowplow-QuickStart-CircleCI/tree/main)
 <!-- PROJECT LOGO -->
 ![Snowplow Logo](./media/snowplow_logo.png)
 <br />
