@@ -7,8 +7,6 @@
 *** Thanks again! Now go create something AMAZING! :D
 -->
 
-
-
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -18,6 +16,7 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 [![CircleCI](https://circleci.com/gh/gthomson31/Snowplow-QuickStart-CircleCI/tree/main.svg?style=svg&circle-token=f9a55d6df6a95092a3cbc7ef28b0a1e46e196d71)](https://circleci.com/gh/gthomson31/Snowplow-QuickStart-CircleCI/tree/main)
+
 <!-- PROJECT LOGO -->
 ![Snowplow Logo](./media/snowplow_logo.png)
 <br />
@@ -30,8 +29,6 @@
     <br />
   </p>
 </div>
-
-
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -60,10 +57,10 @@
 </details>
 <br>
 
-
 <!-- SNOWPLOW OVERVIEW  -->
 # Snowplow Overview
-Snowplow is an enterprise-strength marketing and product analytics platform. 
+
+Snowplow is an enterprise-strength marketing and product analytics platform.
 It does three things:
 
 * Identifies your users, and tracks the way they engage with your website or application
@@ -72,24 +69,20 @@ It does three things:
 
 To find out more, please check out the [Snowplow Website](https://snowplowanalytics.com/) and the [docs](https://docs.snowplowanalytics.com/open-source-docs/) website.
 
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
 ![CircleCI Deployment Pipeline](./media/deployment.png)
 
-The aim of this project was to utilise automation using CircleCI to pull together the quickstart deployment templates into a reusable pipeline that could be forked and deployed quickly. 
+The aim of this project was to utilise automation using CircleCI to pull together the quickstart deployment templates into a reusable pipeline that could be forked and deployed quickly.
 
 Here's why:
+
 * Speed up the time to deploy the quickstart pipeline.
 * Using CircleCI as a CI/CD deployment method will allow you to deploy consistently.
 * You should implement DRY principles to the rest of your life :smile:
 
-
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 ### Built With
 
@@ -100,12 +93,10 @@ Here's why:
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- GETTING STARTED -->
 ## Getting Started
 
-In order to use this project effectivly you will first need to follow the prerequisites in order to setup your enviroment effectivly.
+In order to use this project effectivly you first need to follow the prerequisites in order to setup your enviroment effectivly.
 
 ### Prerequisites
 
@@ -115,42 +106,65 @@ In order to use this project effectivly you will first need to follow the prereq
 * Terraform ClI
   * Used Locally to deploy the prerequiste stack (Networking and DynamoDB table)
 
-### Installation
+### Setup Installation
 
-# High Level Steps more Detail to follow 
+1. Select **"Use this Template"** and create a repo of your choosing
+2. Configure the Project within CircleCI, This is done with the steps below.
+   1. Open CircleCI Dashboard &rarr; Projects &rarr; "Find the created Repo" &rarr; Click Setup Project
 
-1. Fork the github directory
-2. Follow the project within CircleCI utilising the exisiting Config.yml file
-3. Deploy the Prerequisite terraform stacks to deploy the required networks/dynamodb
-4. Update the Terraform Versions terraform_files/(iglu/pipeline)versions.tf with dyanmoDB details
-5. Create the following enviroment variables within CircleCI
-  ```
-    ALLOWED_IP	
-    AWS_ACCESS_KEY_ID	
+   ![CircleCI Deployment Pipeline](./media/circleci_project.jpg)
+
+3. When Setting up choose to use the existing **config.yml** file <br>
+
+<p align="center"><img src="./media/circleci_setup.jpg" width="350" height="300" /></p>
+
+4. Run the Prerequisite Stack (networking_db_stack) to create the required networks and DynamoDB Table for TF locks.
+    - Store the Network outputs from this.
+
+    - Update the (terraform_files) to reflect the Created DB
+
+5. Populate the CircleCI Enviroment Vars for the Pipeline - You should have a value for all below.
+
+ ```
+    ALLOWED_IP 
+    AWS_ACCESS_KEY_ID 
     AWS_DEFAULT_REGION
-    AWS_SECRET_ACCESS_KEY	 
-    IGLU_API_KEY	
+    AWS_SECRET_ACCESS_KEY  
+    IGLU_API_KEY 
     IGLU_DB_PASSWORD
     PREFIX
-    PUBLIC_SUBNET_1	
-    PUBLIC_SUBNET_2	
+    PUBLIC_SUBNET_1 
+    PUBLIC_SUBNET_2 
     S3_DATA_BUCKET
     SSH_PUBLIC_KEY
     VPC_ID
   ```
   Optional variable depending on AWS Deployment.
+
   ```
     IAM_PERMISSIONS_BOUNDRY
   ```
 
+
+
+
+# High Level Steps more Detail to follow
+
+1. Select Use this Template and create a repo of your choosing
+2. Follow the project within CircleCI utilising the exisiting Config.yml file
+3. Deploy the Prerequisite terraform stacks to deploy the required networks/dynamodb
+4. Update the Terraform Versions terraform_files/(iglu/pipeline)versions.tf with dyanmoDB details
+5. Create the following enviroment variables within CircleCI
+
+
+
+
+
+
+
 6. Commit and push your changes to kick of the deployment. 🚀
 
-
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-
 
 <!-- USAGE EXAMPLES -->
 ## Usage
@@ -161,20 +175,18 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] Create Initial AWS Default Iglu Deployment
-- [x] Create Initial AWS Default Pipline Deployment
-- [x] Add in Teardown Parameter to destroy the deployment
-- [ ] DOCUMENNTATION!! 
-- [ ] Create Initial GCP Default Iglu Deployment
-- [ ] Create Initial GCP Default Pipline Deploymente
-- [ ] Additional Outputs for Prequisites
-- [ ] Create Secure deployment updates
-- [ ] Add additional modifications to allow for further automation.
+* [x] Create Initial AWS Default Iglu Deployment
+* [x] Create Initial AWS Default Pipline Deployment
+* [x] Add in Teardown Parameter to destroy the deployment
+* [ ] DOCUMENNTATION!!
+* [ ] Create Initial GCP Default Iglu Deployment
+* [ ] Create Initial GCP Default Pipline Deploymente
+* [ ] Additional Outputs for Prequisites
+* [ ] Create Secure deployment updates
+* [ ] Add additional modifications to allow for further automation.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -194,16 +206,12 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- LICENSE -->
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- CONTACT -->
 ## Contact
@@ -212,8 +220,6 @@ Your Name - [@gregthomson31](https://twitter.com/gregthomson31) - greg.thomson@s
 Project Link: [https://github.com/gthomson31/Snowplow-QuickStart-CircleCI](Snowplow-QuickStart-CircleCI)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- LINKS -->
 ## Further Snowplow links
@@ -227,9 +233,7 @@ Project Link: [https://github.com/gthomson31/Snowplow-QuickStart-CircleCI](Snowp
 * [terraform-modules]
 * [research-survey]
 
-
 <p align="right">(<a href="#top">back to top</a>)</p>
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
@@ -248,7 +252,6 @@ Project Link: [https://github.com/gthomson31/Snowplow-QuickStart-CircleCI](Snowp
 
 [architecture-image]: media/snowplow_architecture.png
 [architecture]: ./ARCHITECTURE.md
-
 
 [javascript-tracker]: https://github.com/snowplow/snowplow-javascript-tracker
 [amp-tracker]: https://docs.snowplowanalytics.com/docs/collecting-data/collecting-from-own-applications/google-amp-tracker/

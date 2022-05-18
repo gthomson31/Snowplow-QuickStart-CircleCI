@@ -17,6 +17,3 @@ module "vpc" {
     Environment = "${var.prefix}-sandbox"
   }
 }
-
-
-
