@@ -107,13 +107,10 @@ jobs:
       - attach_workspace:
           # Must be absolute path or relative path from working_directory
           at: /home/circleci/project
-      - run:
-          name: Clone Quickstart Repo
-          command: |
-            git clone https://github.com/snowplow/quickstart-examples.git
       - run: 
           name: Patching Iglu Vars File
           command: |
+            
             bash -x ./scripts/patch_pipeline_vars.sh
             echo "Terraform files have been patched with ENV Vars"
       - run: 
