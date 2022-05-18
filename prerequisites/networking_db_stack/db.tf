@@ -7,7 +7,7 @@ module "dynamodb_table" {
   attributes = [
     {
       name = "LockID"
-      type = "N"
+      type = "S"
     }
   ]
 
