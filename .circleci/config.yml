@@ -104,6 +104,9 @@ jobs:
       - image: cimg/base:stable
     steps:
       - checkout
+      - attach_workspace:
+          # Must be absolute path or relative path from working_directory
+          at: /home/circleci/project
       - run:
           name: Clone Quickstart Repo
           command: |

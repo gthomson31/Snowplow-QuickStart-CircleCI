@@ -74,13 +74,13 @@ To find out more, please check out the [Snowplow Website](https://snowplowanalyt
 
 ![CircleCI Deployment Pipeline](./media/deployment.png)
 
-The aim of this project was to utilise automation using CircleCI to pull together the quickstart deployment templates into a reusable pipeline that could be forked and deployed quickly.
+The aim of this project was to utilise automation using CircleCI to pull together the quickstart deployment templates into a reusable pipeline that could be re-used and deployed quickly by all.
 
 Here's why:
 
 * Speed up the time to deploy the quickstart pipeline.
 * Using CircleCI as a CI/CD deployment method will allow you to deploy consistently.
-* You should implement DRY principles to the rest of your life :smile:
+* Gets you a working snowplow pipeline with minimal effort.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -119,9 +119,9 @@ In order to use this project effectivly you first need to follow the prerequisit
 <p align="center"><img src="./media/circleci_setup.jpg" width="350" height="300" /></p>
 
 4. Run the Prerequisite Stack (networking_db_stack) to create the required networks and DynamoDB Table for TF locks.
-    - Store the Network outputs from this.
-
+    - Store the Network outputs from this to be added in the next step.
     - Update the (terraform_files) to reflect the Created DB
+  
 
 5. Populate the CircleCI Enviroment Vars for the Pipeline - You should have a value for all below.
 
@@ -145,43 +145,26 @@ In order to use this project effectivly you first need to follow the prerequisit
     IAM_PERMISSIONS_BOUNDRY
   ```
 
-
-
-
-# High Level Steps more Detail to follow
-
-1. Select Use this Template and create a repo of your choosing
-2. Follow the project within CircleCI utilising the exisiting Config.yml file
-3. Deploy the Prerequisite terraform stacks to deploy the required networks/dynamodb
-4. Update the Terraform Versions terraform_files/(iglu/pipeline)versions.tf with dyanmoDB details
-5. Create the following enviroment variables within CircleCI
-
-
-
-
-
-
-
 6. Commit and push your changes to kick of the deployment. 🚀
 
-<p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- USAGE EXAMPLES -->
-## Usage
+7. Leave the pipeline to deploy and once update the following field to false in the config file to tear down
+  ```
+    build_enviroment:
+    type: boolean
+    default: <true/false>
+  ```
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- ROADMAP -->
-## Roadmap
+## Roadmap - No set dates
 
 * [x] Create Initial AWS Default Iglu Deployment
 * [x] Create Initial AWS Default Pipline Deployment
 * [x] Add in Teardown Parameter to destroy the deployment
-* [ ] DOCUMENNTATION!!
+* [x] DOCUMENNTATION!!
 * [ ] Create Initial GCP Default Iglu Deployment
 * [ ] Create Initial GCP Default Pipline Deploymente
 * [ ] Additional Outputs for Prequisites
