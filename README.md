@@ -57,6 +57,10 @@
 </details>
 <br>
 
+ ### Tested on the following [Snowplow Quickstart Release](https://github.com/snowplow/quickstart-examples/tree/05418342d0f12b5ac7511dbe3b73eca19b899f21/terraform/aws/pipeline/default)- Any changes after this release will need to be factored into the code and will prevent the pipeline from running as expected.
+
+
+
 <!-- SNOWPLOW OVERVIEW  -->
 # Snowplow Overview
 

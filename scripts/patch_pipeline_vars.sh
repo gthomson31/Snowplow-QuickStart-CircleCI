@@ -1,6 +1,6 @@
 # -- Navigate to the Repo
 export IGLU_URL=$(cat /home/circleci/project/terraform_outputs/iglu_server.txt| sed 's/"//g')
-cd quickstart-examples/terraform/aws && pwd
+cd quickstart-examples/terraform/aws/ && pwd
 # -- Find and replace for enviroment variables
 sed -i  's|prefix = .*|prefix = "'"$PREFIX"'"|' pipeline/default/terraform.tfvars
 sed -i  's|s3_bucket_name = .*|s3_bucket_name = "'"${S3_DATA_BUCKET}"'"|' pipeline/default/terraform.tfvars
